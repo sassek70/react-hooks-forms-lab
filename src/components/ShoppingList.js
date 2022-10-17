@@ -24,15 +24,12 @@ function ShoppingList({ items, onItemFormSubmit }) {
     return item.name.toLowerCase().includes(searchedItem.toLowerCase())
  })
 
-  function handleSearchChange(event) {
-    setSearcheditem(event.target.value)
-  }
 
 
   return (
     <div className="ShoppingList">
       <ItemForm onItemFormSubmit={onItemFormSubmit}/>
-      <Filter onCategoryChange={handleCategoryChange} onSearchChange={handleSearchChange} />
+      <Filter search={searchedItem} onCategoryChange={handleCategoryChange} onSearchChange={setSearcheditem} />
       <ul className="Items">
         {searchResults.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
