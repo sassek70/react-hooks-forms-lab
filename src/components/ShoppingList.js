@@ -27,12 +27,12 @@ function ShoppingList({ items, onItemFormSubmit }) {
   function handleSearchChange(event) {
     setSearcheditem(event.target.value)
   }
-
+  console.log(searchedItem)
 
   return (
     <div className="ShoppingList">
       <ItemForm onItemFormSubmit={onItemFormSubmit}/>
-      <Filter onCategoryChange={handleCategoryChange} onSearchChange={handleSearchChange} />
+      <Filter value={searchedItem} onCategoryChange={handleCategoryChange} onSearchChange={handleSearchChange} />
       <ul className="Items">
         {searchResults.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
